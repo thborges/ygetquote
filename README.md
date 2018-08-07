@@ -1,5 +1,5 @@
 # ygetquote
-Get Yahoo Financial Quotes using yours stored cookies (in mozilla format). The purpose is to use on spreadsheets.
+Get Yahoo Financial Quotes using yours stored cookies (in mozilla format). The purpose is to use in Open Office Calc sheets.
 
 Howto (Mac OSX):
  * Change yahoogetquote.py line 10 with the file path of yours cookies.txt (exported from your browser)
