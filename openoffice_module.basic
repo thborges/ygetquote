@@ -1,0 +1,73 @@
+' Keep a global reference to the ScriptProvider, since this stuff may be called many times: 
+Global g_MasterScriptProvider as Object
+' Specify location of Python script, providing cell functions: 
+Const URL_Main as String = "vnd.sun.star.script:"
+
+' Converts python multidimensional arrays to basic arrays.
+function convPy2Basic(pyvalue)
+    if isarray(pyvalue) then
+        dim lastRow as integer 
+        lastRow = ubound(pyvalue)
+        if lastRow = -1 then
+            ' empty array
+            convPy2Basic = ""
+        else
+            if isarray(pyvalue(0)) then
+                ' Multi-dimensional array
+                dim maxCols as integer, lastCol as integer
+                maxCols = ubound(pyvalue(0))
+
+                dim res(lastRow, maxCols)
+                for rowIndex = 0 to lastRow
+                    lastCol = ubound(pyvalue(rowIndex))
+
+                    ' Expand array if needed.
+                    if lastCol > maxCols then
+                        maxCols = lastCol
+                        redim preserve res(lastRow, maxCols)
+                    end if
+
+                    for colIndex = 0 to lastCol
+                        res(rowIndex, colIndex) = pyvalue(rowIndex)(colIndex)
+                    next colIndex
+                next rowIndex
+
+                convPy2Basic = res
+            else
+                ' Single-dimensional array - this is supported by libreoffice
+                convPy2Basic = pyvalue
+            end if
+        end if
+    else
+        convPy2Basic = pyvalue
+    end if
+end function
+
+Function invokeScriptFunc(file AS String, lang, ext, func As String, args As Array, outIdxs As Array, outArgs As Array)
+   sURL = URL_Main & file & "." & ext & "$" & func & "?language=" & lang & "&location=user" 
+   oMSP = getMasterScriptProvider()
+   'vnd.sun.star.script:myModule.py$myFunction?language=Python&location=user
+   oScript = oMSP.getScript(sURL)
+   invokeScriptFunc = oScript.invoke(args, outIdxs, outArgs)
+end Function
+
+Function invokePyFunc(file AS String, func As String, args As Array, outIdxs As Array, outArgs As Array)
+   res = invokeScriptFunc(file, "Python", "py", func, args, outIdxs, outArgs)
+   invokePyFunc = convPy2Basic(res)
+end Function
+
+Function getMasterScriptProvider() 
+   if isNull(g_MasterScriptProvider) then 
+      oMasterScriptProviderFactory = createUnoService("com.sun.star.script.provider.MasterScriptProviderFactory") 
+      g_MasterScriptProvider = oMasterScriptProviderFactory.createScriptProvider("") 
+   endif 
+   getMasterScriptProvider = g_MasterScriptProvider
+End Function
+
+Function pyFunc(filename as String, func as String, args as Array)
+    pyFunc = invokePyFunc(filename, func, args, Array(), Array())
+End Function
+
+function yahoo_getquote(arg as String)
+    yahoo_getquote = CDbl(pyFunc("yahoogetquote", "get_quote", Array(arg)))
+end function
