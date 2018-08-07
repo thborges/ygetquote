@@ -5,6 +5,9 @@ import time
 import csv
 
 def get_quote(ticket):
+    if ticket == "":
+        return 0
+
     cj = cookielib.MozillaCookieJar()
     # cj.load signature: filename=None, ignore_discard=False, ignore_expires=False
     cj.load('/Users/thborges/ycookies.txt') 
@@ -14,13 +17,16 @@ def get_quote(ticket):
 
     #https://query1.finance.yahoo.com/v7/finance/download/USIM5.SA?period1=1530971942&period2=1533650342&interval=1d&events=history&crumb=x10F8d5X3VX
     ydate = int(time.time())
-    yurl = 'https://query1.finance.yahoo.com/v7/finance/download/{0}.SA?period1={1}&period2={1}&interval=1d&events=history&crumb=x10F8d5X3VX'
+    yurl = 'https://query1.finance.yahoo.com/v7/finance/download/{0}?period1={1}&period2={1}&interval=1d&events=history&crumb=x10F8d5X3VX'
     furl = yurl.format(ticket, ydate)
     
     req = urllib2.Request(url=furl)
     req.add_header('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:7.0.1) Gecko/20100101 Firefox/7.0.1')
 
-    f = urllib2.urlopen(req)
+    try:
+        f = urllib2.urlopen(req)
+    except Exception:
+        return '0.0'
 
     quote = '0.0'
     data = f.read().decode('utf-8')
