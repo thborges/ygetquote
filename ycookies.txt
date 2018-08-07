@@ -1,0 +1,23 @@
+# HTTP Cookie File for yahoo.com by Genuinous @genuinous.
+# To download cookies for this tab click here, or download all cookies.
+# Usage Examples:
+#   1) wget -x --load-cookies cookies.txt "https://finance.yahoo.com/quote/USIM5.SA/history?period1=1533351600&period2=1533524400&interval=1d&filter=history&frequency=1d"
+#   2) curl --cookie cookies.txt "https://finance.yahoo.com/quote/USIM5.SA/history?period1=1533351600&period2=1533524400&interval=1d&filter=history&frequency=1d"
+#   3) aria2c --load-cookies cookies.txt "https://finance.yahoo.com/quote/USIM5.SA/history?period1=1533351600&period2=1533524400&interval=1d&filter=history&frequency=1d"
+#
+
+# these cookies are invalid. You have to put yours here. 
+# You can use Chrome plugin like 'export cookies.txt' after logged into yahoo account
+
+.yahoo.com	TRUE	/	FALSE	1565192180	B	xxxxxxx&b=4&d=vEO8yWlpYFWa8sNcBpQsunjwJJ54Kjzwv3KS78QxXA--&s=ki&i=a4LnEUCzzYITZQmHMcYg
+.yahoo.com	TRUE	/	TRUE	1565186091	T	z=xxxxxxx&a=QAE&sk=DAAyRU7ZVJgQd/&ks=EAA4ky3VFCs_xdAQo6t5fooFA--~G&kt=EAAD2EFfWu9fDmPNeVAAmgZyw--~I&ku=FAAIudOFIQm0N9vbNpNIT11oPT2.Drb.BMEYhH3Elc8MmcRuzkOq2A.mIrBeN3T.1z60FYgJISHFonF9ONKlVHgxeIvd4XWIW9btUd15kemWrkmSL1nx2V40DCos.bjy6_Nv4GX3_Ux.XeuHEq5aFOhfwOuKiplJ_ajMJYXXI1MYKA-~A&d=bnMBeWFob28BZwFSQUNMR0ZRQk1ZMlhKTEFTVTJYM0lUTDdFNAFzbAFOREF4TUFFeU1URTRPRFl3TnpJeAFhAVFBRQFhYwFBRzBpNmdfdgFjcwEBc2MBZGVza3RvcF93ZWIBZnMBZnhCUmhPUmJhWjdVAXp6AXJTYWFiQkE3RQ--&af=JnRzPTE1MzM2NTAwOTEmcHM9amY0cDk1T2lIYXJwa2ZYTE0xUG50Zy0t
+.yahoo.com	TRUE	/	FALSE	1565186091	F	d=xxxx.3v0iRKu7Te0boPp9.BJE
+.yahoo.com	TRUE	/	FALSE	1565186091	PH	fn=xxx&l=en-US&i=us
+.yahoo.com	TRUE	/	FALSE	1565186091	Y	v=1&n=xxxx&l=j7806e_1eh/o&p=m2kvvbr00000000&iz=75905770&r=bc&lg=en-US&intl=us
+.login.yahoo.com	TRUE	/	TRUE	1565186091	FS	v=1&d=mKCCF4ra_SSjJl1uDk6sS9K4s7jtw3.SIq2R49cgxrM54AofnyI7mP2ACSN4~A
+.yahoo.com	TRUE	/	TRUE	1565186091	SSL	v=1&s=R1FS.IUMexuZmjk4R5_vCJfS8k994XsJbT2Vjo_RxUz34QKI0_VvLVKVfhTLPWhkSOAsGVyw93ju18AXrLWSrg--&kv=0&ku=MYohs9IZNP2r43L0_893umcl5sBcDDuIqiG5G9.3w4gdF.eh4Ts3OZFekYUaBbaz1xFMOdv9moXetEiRcVdfrByJXrYykEmM.ysK5n1pPWqYU2v5O6LWppY7XbFT.xB3z0KuYpIEvSe4rCli39x7xvS4UH7JyPdF0bzlXU_mx9s-~A
+.yahoo.com	TRUE	/	FALSE	2164788579	AO	u=1
+.login.yahoo.com	TRUE	/	TRUE	0	AS	v=1&s=iN9mNlT6
+.yahoo.com	TRUE	/	TRUE	1565229383	GUC	AQEAAQJbavVcUkId1QRU&s=AQAAAAI8gFlr&g=W2mlNw
+.finance.yahoo.com	TRUE	/	FALSE	1596768778	PRF	pf-trd-promo%3D1%26t%3DUSIM5.SA
+finance.yahoo.com	FALSE	/	FALSE	1565190855	cmp	t=1533654856&j=0
