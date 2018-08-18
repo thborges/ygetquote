@@ -3,7 +3,7 @@ Get Yahoo Financial Quotes using yours stored cookies (in mozilla format). The p
 
 Howto (Mac OSX):
  * Install an extension in your browser to export cookies in Mozilla format. cookies.txt works ok in Chrome: https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg
- * Login to your yahoo account and export the cookies for yahoo site
+ * Login into your yahoo account and export the cookies for yahoo site
  * Change yahoogetquote.py line 10 with the file path of cookies.txt saved from previous step (exported from your browser)
  * Put yahoogetquote.py into '/Users/uname/Library/Application Support/OpenOffice/4/user/Scripts/python', or equivalent if not OSX (search for OpenOffice.org's user directory)
  * Check if the python macro was loaded in Openoffice, opening Tools -> Macros -> Organize Macros -> Python. It should appears as show in the image below:
